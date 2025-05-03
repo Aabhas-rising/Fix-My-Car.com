@@ -7,13 +7,15 @@
     <title>Car Service Form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* General Styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #e0eafc, #cfdef3);
-            /* Subtle gradient background */
+            /* Use a slightly wider range of weights */
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            /* More modern gradient */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -21,70 +23,75 @@
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
-            /* Include padding in element's total width and height */
         }
 
         .container {
-            max-width: 600px;
-            /* Slightly narrower container */
+            max-width: 650px;
+            /* Slightly wider container for a more spacious feel */
             width: 100%;
-            /* Ensure it takes full width on small screens */
             margin: auto;
-            background: white;
-            padding: 40px;
+            background: #ffffff;
+            /* Pure white background */
+            padding: 50px;
             /* Increased padding */
-            border-radius: 12px;
+            border-radius: 16px;
             /* More rounded corners */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
             /* Softer, larger shadow */
             box-sizing: border-box;
-            /* Include padding in element's total width and height */
+            border: 1px solid #e0e0e0;
+            /* Subtle border */
         }
 
         h2 {
             text-align: center;
-            font-size: 30px;
-            /* Slightly larger heading */
-            color: #3a4a60;
-            /* Deeper blue-grey */
-            margin-bottom: 30px;
+            font-size: 32px;
+            /* Larger heading */
+            color: #2c3e50;
+            /* Darker, more professional blue-grey */
+            margin-bottom: 40px;
             /* More space below heading */
-            font-weight: 700;
+            font-weight: 600;
+            /* Slightly heavier weight for heading */
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 15px;
+            margin-bottom: 10px;
+            /* More space below label */
+            font-size: 16px;
+            /* Slightly larger label font */
             font-weight: 500;
-            /* Medium weight */
-            color: #556270;
-            /* Softer text color */
+            color: #34495e;
+            /* Darker text color */
         }
 
-        input,
+        input:not([type="radio"]):not([type="checkbox"]),
         select {
             width: 100%;
-            padding: 12px 15px;
-            /* Slightly more padding */
-            margin-bottom: 20px;
+            padding: 14px 18px;
+            /* Increased padding */
+            margin-bottom: 25px;
             /* More space below inputs */
             border-radius: 8px;
-            border: 1px solid #d0d7de;
-            /* Softer border color */
+            border: 1px solid #dcdcdc;
+            /* Lighter, cleaner border */
             font-size: 16px;
             box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            /* Smooth transitions */
+            background-color: #f9f9f9;
+            /* Very light grey background */
         }
 
-        input:focus,
+        input:focus:not([type="radio"]):not([type="checkbox"]),
         select:focus {
             outline: none;
-            border-color: #5a99f5;
-            /* Highlight color on focus */
-            box-shadow: 0 0 5px rgba(90, 153, 245, 0.3);
-            /* Subtle shadow on focus */
+            border-color: #007bff;
+            /* Primary blue highlight */
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            /* Subtle blue shadow on focus */
+            background-color: #ffffff;
+            /* White background on focus */
         }
 
 
@@ -99,13 +106,14 @@
         }
 
         select {
-            background-color: #ffffff;
+            background-color: #f9f9f9;
             cursor: pointer;
+            /* Add a custom arrow for select if needed, but default is often fine */
         }
 
         /* Location Group Layout */
         .location-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             /* Standard input margin */
         }
 
@@ -126,112 +134,165 @@
 
         /* Added style for the location instruction text */
         .location-instruction {
-            font-size: 14px;
-            color: #556270;
-            margin-bottom: 10px;
+            font-size: 15px;
+            /* Slightly larger instruction text */
+            color: #dc3545;
+            /* Changed to red */
+            margin-bottom: 15px;
+            /* More space below instruction */
             text-align: center;
-            /* Center the instruction text */
+            font-weight: 400;
         }
 
 
         .form-actions {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             /* More space above buttons */
             display: flex;
             /* Use flexbox for layout */
             justify-content: center;
-            /* Center buttons */
+            align-items: center;
+            /* Align items vertically in the container */
             flex-wrap: wrap;
-            /* Allow buttons to wrap on smaller screens */
-            gap: 15px;
-            /* Space between flex items */
+            /* Allow items to wrap on smaller screens */
+            gap: 20px;
+            /* Increased space between flex items */
         }
 
         .form-actions button,
         .form-actions a.button {
-            /* Apply button styles to anchor tags */
-            padding: 12px 25px;
-            /* Slightly adjusted padding */
+            padding: 14px 30px;
+            /* Increased padding for larger buttons */
             border: none;
             border-radius: 8px;
             color: white;
-            font-size: 17px;
-            font-weight: 500;
+            font-size: 18px;
+            /* Larger font size */
+            font-weight: 600;
+            /* Heavier font weight */
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
             text-decoration: none;
-            /* Remove underline from links */
             display: inline-flex;
-            /* Use flex to potentially center text/icon */
             align-items: center;
-            /* Vertically center text/icon */
             justify-content: center;
-            /* Horizontally center text/icon */
+            min-width: 150px;
+            /* Minimum width for buttons */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Subtle button shadow */
+        }
+
+        /* Style for the container holding Call and WhatsApp buttons */
+        .contact-buttons {
+            display: flex;
+            /* Use flexbox to put Call and WhatsApp side-by-side */
+            gap: 15px;
+            /* Space between Call and WhatsApp buttons */
+            flex-wrap: wrap;
+            /* Allow these buttons to wrap if needed */
+            justify-content: center;
+            /* Center the contact buttons within their container */
+            align-items: center;
+            /* Vertically align contact buttons */
+        }
+
+
+        .form-actions button:hover,
+        .form-actions a.button:hover {
+            transform: translateY(-2px);
+            /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            /* Slightly larger shadow on hover */
         }
 
         .form-actions button:active,
         .form-actions a.button:active {
             transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Smaller shadow on active */
         }
+
 
         /* Specific Button Colors */
         button[type="submit"] {
-            background-color: #4a90e2;
-            /* Primary submit button */
+            background-color: #007bff;
+            /* Primary blue */
+            flex-grow: 1;
+            /* Allow submit button to grow and take more space */
+            max-width: 300px;
+            /* Optional: Maximum width for the submit button */
         }
 
         button[type="submit"]:hover {
-            background-color: #357ab8;
-            transform: translateY(-1px);
+            background-color: #0056b3;
         }
 
         .call-btn {
-            background-color: #5a6270;
-            /* Grey/Dark color for call */
+            background-color: #6c757d;
+            /* Muted grey */
+            flex-grow: 1;
+            /* Allow call button to grow */
+            min-width: 120px;
+            /* Adjusted min-width for smaller buttons */
         }
 
         .call-btn:hover {
-            background-color: #444d57;
-            transform: translateY(-1px);
+            background-color: #5a6268;
         }
 
 
         .whatsapp-btn {
-            background-color: #25d366;
-            /* WhatsApp green */
+            background-color: #28a745;
+            /* Success green */
+            flex-grow: 1;
+            /* Allow whatsapp button to grow */
+            min-width: 120px;
+            /* Adjusted min-width for smaller buttons */
         }
 
         .whatsapp-btn:hover {
-            background-color: #1da851;
-            transform: translateY(-1px);
+            background-color: #218838;
         }
 
         .get-location-btn {
-            background-color: #007bff;
-            /* Bootstrap primary blue color */
+            background-color: #17a2b8;
+            /* Info blue-green */
             color: white;
-            padding: 12px 15px;
+            padding: 14px 18px;
             /* Match input padding height */
             white-space: nowrap;
-            /* Prevent text wrapping on button */
+            font-weight: 500;
+            /* Slightly lighter weight for this button */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Subtle button shadow */
         }
 
         .get-location-btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-1px);
+            background-color: #138496;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
+
+        .get-location-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
 
         .get-location-btn:disabled {
             background-color: #cccccc;
             cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
 
         .info {
-            margin-top: 25px;
-            font-size: 15px;
-            color: #2ecc71;
+            margin-top: 30px;
+            font-size: 16px;
+            /* Slightly larger info text */
+            color: #28a745;
             /* Success color */
             text-align: center;
             font-weight: 500;
@@ -239,19 +300,19 @@
         }
 
         .error-message {
-            color: #e74c3c;
-            /* Error color */
-            font-size: 13px;
-            /* Smaller font */
+            color: #dc3545;
+            /* Danger red */
+            font-size: 14px;
+            /* Slightly larger error font */
             margin-top: 5px;
-            /* Adjusted margin below the input group */
             margin-bottom: 15px;
             display: none;
+            font-weight: 400;
         }
 
         /* Adjust margin below the location group if error is hidden */
         .location-group:not(:has(.error-message:not([style*="display: none"]))) {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             /* Normal spacing if no error */
         }
 
@@ -263,74 +324,167 @@
 
 
         input[readonly] {
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
             /* Lighter background for readonly */
             cursor: default;
-            /* Default cursor for readonly */
+            font-style: italic;
+            /* Italicize readonly text */
         }
 
         input[readonly]:focus {
-            border-color: #d0d7de;
+            border-color: #dcdcdc;
             box-shadow: none;
+            background-color: #e9ecef;
         }
 
         /* Style for the new "Other" text inputs */
         .other-input {
             display: none;
-            /* Initially hidden */
+            margin-top: -10px;
+            /* Reduce space above other input */
+        }
+
+        /* Style for the checkbox container */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            /* Space below the checkbox */
+            font-size: 15px;
+            color: #34495e;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+            /* Space between checkbox and label */
+            margin-bottom: 0;
+            /* Remove default bottom margin */
+            cursor: pointer;
+            width: auto;
+            /* Allow checkbox to take its default width */
+        }
+
+        .checkbox-container label {
+            margin-bottom: 0;
+            /* Remove default label bottom margin */
+            cursor: pointer;
+            font-weight: 400;
+            /* Lighter weight for checkbox label */
+            display: inline;
+            /* Make label inline with checkbox */
+        }
+
+        .terms-link {
+            color: #007bff;
+            /* Link color */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .terms-link:hover {
+            color: #0056b3;
+            /* Darker color on hover */
+            text-decoration: underline;
         }
 
 
         @media (max-width: 768px) {
             .container {
-                padding: 25px;
+                padding: 30px;
                 /* Adjusted padding */
             }
 
             h2 {
-                font-size: 26px;
+                font-size: 28px;
+                margin-bottom: 30px;
             }
 
-            label,
-            input,
+            label {
+                font-size: 15px;
+            }
+
+            input:not([type="radio"]):not([type="checkbox"]),
             select {
-                font-size: 14px;
+                padding: 12px 15px;
+                font-size: 15px;
+                margin-bottom: 20px;
             }
 
             .location-input-group {
                 flex-direction: column;
-                /* Stack input and button */
                 align-items: stretch;
-                /* Stretch items to full width */
                 gap: 10px;
             }
 
             .location-input-group input[type="text"] {
                 margin-bottom: 0;
-                /* Ensure no extra margin */
             }
 
             .get-location-btn {
                 width: 100%;
-                /* Make button full width */
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                /* Stack buttons vertically on smaller screens */
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            .form-actions button[type="submit"] {
+                width: 100%;
+                /* Make submit button full width */
+                max-width: unset;
+                /* Remove max-width constraint */
             }
 
 
             .form-actions button,
             .form-actions a.button {
-                padding: 10px 20px;
-                font-size: 15px;
+                padding: 12px 25px;
+                font-size: 16px;
+                min-width: unset;
                 flex-grow: 1;
-                /* Allow buttons to grow to fill space */
-                min-width: 120px;
-                /* Minimum width for buttons */
-                max-width: 100%;
-                /* Prevent buttons from exceeding container width */
             }
 
-            .form-actions {
+            .contact-buttons {
+                flex-direction: row;
+                /* Keep contact buttons in a row */
                 gap: 10px;
-                /* Smaller gap on small screens */
+                /* Adjust gap for smaller screens */
+                width: 100%;
+                /* Take full width */
+                justify-content: space-around;
+                /* Distribute space around buttons */
+            }
+
+            .contact-buttons .button {
+                flex-grow: 1;
+                /* Allow contact buttons to grow */
+                min-width: unset;
+                /* Remove min-width to allow more flexible sizing */
+                padding: 10px 15px;
+                /* Adjust padding for smaller buttons */
+                font-size: 15px;
+                /* Adjust font size for smaller buttons */
+            }
+
+            .location-instruction {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .error-message {
+                font-size: 13px;
+            }
+
+            .checkbox-container {
+                font-size: 14px;
+                margin-bottom: 20px;
             }
         }
 
@@ -339,12 +493,63 @@
                 padding: 20px;
             }
 
+            h2 {
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+
+            input:not([type="radio"]):not([type="checkbox"]),
+            select {
+                margin-bottom: 15px;
+            }
+
+            .form-actions {
+                gap: 10px;
+                margin-top: 25px;
+            }
+
+            .form-actions button[type="submit"] {
+                width: 100%;
+                /* Ensure full width */
+            }
+
             .form-actions button,
             .form-actions a.button {
-                padding: 10px 15px;
-                font-size: 14px;
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .get-location-btn {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .contact-buttons {
+                flex-direction: row;
+                /* Keep contact buttons in a row */
+                gap: 8px;
+                /* Smaller gap on very small screens */
+                width: 100%;
+                /* Take full width */
+                justify-content: space-around;
+                /* Distribute space around buttons */
+            }
+
+            .contact-buttons .button {
+                flex-grow: 1;
+                /* Allow contact buttons to grow */
                 min-width: unset;
-                /* Remove min-width below 480px */
+                /* Remove min-width */
+                padding: 8px 12px;
+                /* Further adjust padding */
+                font-size: 14px;
+                /* Further adjust font size */
+            }
+
+
+            .checkbox-container {
+                font-size: 13px;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -390,6 +595,7 @@
             <label for="carModel">Car Model:</label>
             <select id="carModel" name="carModel" required disabled>
                 <option value="">Select Car Brand First</option>
+                <option value="Other">Other</option>
             </select>
             <input type="text" id="otherCarModelInput" name="otherCarModel" class="other-input"
                 placeholder="Enter Car Model Name" />
@@ -403,6 +609,7 @@
                 <option value="CNG">CNG</option>
                 <option value="Electric">Electric</option>
                 <option value="Hybrid">Hybrid</option>
+                <option value="Plug-in Hybrid">Plug-in Hybrid</option>
             </select>
 
             <label for="manufacturingYear">Manufacturing Year:</label>
@@ -422,13 +629,20 @@
                     enter manually.</div>
             </div>
 
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#" class="terms-link">Terms and Conditions</a></label>
+            </div>
+
 
             <input type="hidden" name="_subject" value="New Car Service Booking Received!">
 
             <div class="form-actions">
                 <button type="submit">Submit Booking</button>
-                <a href="tel:+919303931226" class="button call-btn">Call Now</a>
-                <a href="https://wa.me/+919303931226" class="button whatsapp-btn" target="_blank">WhatsApp</a>
+                <div class="contact-buttons">
+                    <a href="tel:+919303931226" class="button call-btn">Call Now</a>
+                    <a href="https://wa.me/+919303931226" class="button whatsapp-btn" target="_blank">WhatsApp</a>
+                </div>
             </div>
         </form>
 
@@ -782,10 +996,19 @@
                     fuel: ['Petrol', 'Diesel']
                 }],
                 'Convertibles': [{
-                    model: 'BMW Z4 (2002–Present)',
+                    model: 'BMW C-Class Cabriolet (2016–2023)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW E-Class Cabriolet (2010–2023)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW S-Class Cabriolet (2016–2021)',
+                    fuel: ['Petrol', 'Diesel']
+                }, {
+                    model: 'BMW SL (1954–Present)',
                     fuel: ['Petrol']
                 }, {
-                    model: 'BMW 4 Series Convertible (2013–Present)',
+                    model: 'BMW SLC (1996–2020)',
                     fuel: ['Petrol', 'Diesel']
                 }],
                 'Electric Vehicles (EVs)': [{
@@ -1099,7 +1322,7 @@
                 }, {
                     model: 'Maruti-Suzuki Swift Dzire',
                     fuel: ['Petrol', 'Diesel', 'CNG']
-                }],
+                }, ],
                 'SUVs/Crossovers': [{
                     model: 'Maruti Suzuki Brezza',
                     fuel: ['Petrol', 'CNG']
@@ -1125,9 +1348,9 @@
 
         // --- ELEMENTS ---
         const carBrandSelect = document.getElementById('carBrand');
-        const otherCarBrandInput = document.getElementById('otherCarBrandInput'); // Get the new input
+        const otherCarBrandInput = document.getElementById('otherCarBrandInput'); // Get the new input for other brand
         const carModelSelect = document.getElementById('carModel');
-        const otherCarModelInput = document.getElementById('otherCarModelInput'); // Get the new input
+        const otherCarModelInput = document.getElementById('otherCarModelInput'); // Get the new input for other model
         const fuelTypeSelect = document.getElementById('fuelType'); // Get the fuel type select
         const yearSelect = document.getElementById('manufacturingYear');
         const locationInput = document.getElementById('location');
@@ -1139,17 +1362,25 @@
         const nameInput = document.getElementById('fullName'); // Added for validation
         const getLocationBtn = document.getElementById('getLocationBtn'); // Get the new button
         const locationInstruction = document.getElementById('locationInstruction'); // Get the instruction text element
+        const termsCheckbox = document.getElementById('terms'); // Get the terms checkbox
 
 
         // --- FUNCTIONS ---
         function populateCarModels() {
             const brand = carBrandSelect.value;
             carModelSelect.innerHTML = '<option value="">Select Car Model</option>';
+            // Add the "Other" option to the model select regardless of brand
+            const otherModelOption = document.createElement('option');
+            otherModelOption.value = 'Other';
+            otherModelOption.textContent = 'Other';
+            carModelSelect.appendChild(otherModelOption);
+
             carModelSelect.disabled = true;
             otherCarBrandInput.style.display = 'none'; // Hide other brand input by default
             otherCarBrandInput.required = false; // Make it not required by default
             otherCarModelInput.style.display = 'none'; // Hide other model input by default
             otherCarModelInput.required = false; // Make it not required by default
+            carModelSelect.style.display = 'block'; // Show car model select by default
 
             // Reset fuel type when brand changes
             resetFuelType();
@@ -1163,7 +1394,6 @@
                 otherCarModelInput.required = true; // Make it required
                 fuelTypeSelect.disabled = false; // Enable fuel type for manual selection
             } else if (brand && carModels[brand]) {
-                carModelSelect.style.display = 'block'; // Show car model select
                 const brandData = carModels[brand];
                 for (const category in brandData) {
                     if (brandData.hasOwnProperty(category) && Array.isArray(brandData[category])) {
@@ -1181,15 +1411,25 @@
                 carModelSelect.disabled = false;
                 fuelTypeSelect.disabled = true; // Disable fuel type until model is selected
             } else if (brand) {
-                carModelSelect.style.display = 'block'; // Show car model select
                 carModelSelect.innerHTML = '<option value="">No models listed</option>';
-                carModelSelect.disabled = true;
+                 // Add the "Other" option back if no models listed
+                const otherModelOptionFallback = document.createElement('option');
+                otherModelOptionFallback.value = 'Other';
+                otherModelOptionFallback.textContent = 'Other';
+                carModelSelect.appendChild(otherModelOptionFallback);
+
+                carModelSelect.disabled = false; // Enable to select "Other"
                 fuelTypeSelect.disabled = true; // Disable fuel type
             } else {
-                carModelSelect.style.display = 'block'; // Show car model select
-                carModelSelect.innerHTML = '<option value="">Select Car Brand First</option>';
-                carModelSelect.disabled = true;
-                fuelTypeSelect.disabled = true; // Disable fuel type
+                 // If no brand selected, only show the default and "Other" options
+                 carModelSelect.innerHTML = '<option value="">Select Car Brand First</option>';
+                 const otherModelOptionInitial = document.createElement('option');
+                 otherModelOptionInitial.value = 'Other';
+                 otherModelOptionInitial.textContent = 'Other';
+                 carModelSelect.appendChild(otherModelOptionInitial);
+
+                 carModelSelect.disabled = true; // Keep disabled until brand is selected
+                 fuelTypeSelect.disabled = true; // Disable fuel type
             }
         }
 
@@ -1199,7 +1439,11 @@
 
             resetFuelType(); // Reset fuel type before updating
 
-            if (brand && model && brand !== 'Other' && carModels[brand]) {
+            if (brand === 'Other' || model === 'Other') {
+                 // If either brand or model is "Other", enable fuel type for manual selection
+                 fuelTypeSelect.disabled = false;
+            }
+            else if (brand && model && carModels[brand]) {
                 const brandData = carModels[brand];
                 let foundModel = null;
                 // Find the selected model data
@@ -1218,21 +1462,30 @@
                     } else {
                         // If multiple fuel types, enable select for user choice
                         fuelTypeSelect.disabled = false;
-                         // Optional: Select the first fuel type as a default hint
-                         // fuelTypeSelect.value = foundModel.fuel[0];
+                        // Optional: Select the first fuel type as a default hint
+                        // fuelTypeSelect.value = foundModel.fuel[0];
                     }
                 } else {
-                     // If model not found or no fuel data, enable for manual entry
-                     fuelTypeSelect.disabled = false;
+                    // If model not found or no fuel data, enable for manual entry
+                    fuelTypeSelect.disabled = false;
                 }
-            } else if (brand === 'Other') {
-                 // If "Other" brand, enable fuel type for manual selection
-                 fuelTypeSelect.disabled = false;
             } else {
                 // If no brand or model selected, disable fuel type
                 fuelTypeSelect.disabled = true;
             }
+
+            // Toggle visibility of otherCarModelInput based on model selection
+            if (model === 'Other' && brand !== 'Other') { // Only show if a specific brand is selected AND model is "Other"
+                 otherCarModelInput.style.display = 'block';
+                 otherCarModelInput.required = true;
+                 carModelSelect.style.display = 'none'; // Hide the select when manual input is needed
+            } else {
+                 otherCarModelInput.style.display = 'none';
+                 otherCarModelInput.required = false;
+                 carModelSelect.style.display = 'block'; // Show the select otherwise
+            }
         }
+
 
         function resetFuelType() {
             fuelTypeSelect.value = ""; // Reset to default option
@@ -1271,6 +1524,9 @@
                         locationInput.style.backgroundColor = '#e9ecef'; // Style to look disabled but filled
                         locationError.style.display = 'none'; // Hide error on success
                         locationInstruction.textContent = "Thank You For Giving Your Location"; // Change instruction text
+                        // Change instruction text color back to default or green on success
+                        locationInstruction.style.color = '#28a745'; // Success color
+
 
                         // Re-enable button after success (optional, as it's filled)
                         getLocationBtn.disabled = false;
@@ -1285,6 +1541,8 @@
                         locationError.textContent = "Could not get location. Please enable permissions or enter manually.";
                         locationError.style.display = 'block';
                         locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                        locationInstruction.style.color = '#dc3545'; // Keep instruction text red on failure
+
 
                         // Re-enable button after failure
                         getLocationBtn.disabled = false;
@@ -1304,6 +1562,8 @@
                 locationError.textContent = "Geolocation is not supported by your browser. Please enter manually.";
                 locationError.style.display = 'block';
                 locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                locationInstruction.style.color = '#dc3545'; // Keep instruction text red on failure
+
 
                 // Disable button since it won't work
                 getLocationBtn.disabled = true;
@@ -1341,7 +1601,7 @@
         form.addEventListener('submit', (e) => {
             let isValid = true;
             responseMessage.textContent = ""; // Clear previous messages
-            responseMessage.style.color = '#e74c3c'; // Default message color to error
+            responseMessage.style.color = '#dc3545'; // Default message color to error
 
             // Validate Name
             if (!nameInput.value.trim()) {
@@ -1369,6 +1629,8 @@
 
             // Validate Car Brand and Model (Handle "Other" case)
             const selectedBrand = carBrandSelect.value;
+            const selectedModel = carModelSelect.value;
+
             if (!selectedBrand) {
                 isValid = false;
                 if (!responseMessage.textContent) {
@@ -1383,7 +1645,7 @@
                         otherCarBrandInput.focus();
                     }
                 }
-                if (!otherCarModelInput.value.trim()) {
+                if (!otherCarModelInput.value.trim()) { // Validate the manual model input when brand is "Other"
                     isValid = false;
                     if (!responseMessage.textContent) {
                         responseMessage.textContent = "Please enter the Car Model name.";
@@ -1391,14 +1653,21 @@
                     }
                 }
             } else { // A specific brand is selected
-                if (carModelSelect.disabled || !carModelSelect.value) { // Check if disabled OR no value selected
-                    isValid = false;
-                    if (!responseMessage.textContent) {
-                        // Refine message based on state
-                        responseMessage.textContent = carModelSelect.disabled ? "Please select a Car Brand first." : "Please select a Car Model.";
-                        carModelSelect.focus();
-                    }
-                }
+                 if (selectedModel === 'Other') { // Specific brand selected, but model is "Other"
+                     if (!otherCarModelInput.value.trim()) { // Validate the manual model input
+                         isValid = false;
+                         if (!responseMessage.textContent) {
+                             responseMessage.textContent = "Please enter the Car Model name.";
+                             otherCarModelInput.focus();
+                         }
+                     }
+                 } else if (!selectedModel) { // Specific brand selected, but no model selected (and not "Other")
+                     isValid = false;
+                     if (!responseMessage.textContent) {
+                         responseMessage.textContent = "Please select a Car Model.";
+                         carModelSelect.focus();
+                     }
+                 }
             }
 
 
@@ -1452,29 +1721,39 @@
                 locationError.style.display = 'none'; // Hide error if location is valid (either fetched or manually entered)
             }
 
+            // Validate Terms and Conditions Checkbox
+            if (!termsCheckbox.checked) {
+                isValid = false;
+                if (!responseMessage.textContent) {
+                    responseMessage.textContent = "You must agree to the Terms and Conditions.";
+                    // You could add a visual indicator to the checkbox or label here if needed
+                }
+            }
+
 
             if (!isValid) {
                 e.preventDefault(); // STOP submission if any validation failed
             } else {
                 // If all client-side checks pass, allow the form to submit to Formspree
                 responseMessage.textContent = "Submitting..."; // Indicate submission
-                responseMessage.style.color = '#3498DB'; // Submission color
+                responseMessage.style.color = '#007bff'; // Submission color (using primary blue)
                 // Use Formspree's built-in AJAX handling for a smoother experience
                 e.preventDefault(); // Prevent default form submission for AJAX example
                 const formData = new FormData(form);
 
-                // Append manual brand/model if "Other" is selected
-                if (carBrandSelect.value === 'Other') {
-                    formData.set('carBrand', otherCarBrandInput.value.trim()); // Use manual brand
-                    formData.set('carModel', otherCarModelInput.value.trim()); // Use manual model
-                } else {
-                    // Ensure the select values are used if not 'Other'
-                    formData.set('carBrand', carBrandSelect.value);
-                    formData.set('carModel', carModelSelect.value);
-                }
+                // Append manual brand/model if "Other" is selected for either brand or model
+                const finalCarBrand = carBrandSelect.value === 'Other' ? otherCarBrandInput.value.trim() : carBrandSelect.value;
+                const finalCarModel = carModelSelect.value === 'Other' || carBrandSelect.value === 'Other' ? otherCarModelInput.value.trim() : carModelSelect.value;
+
+                formData.set('carBrand', finalCarBrand);
+                formData.set('carModel', finalCarModel);
+
 
                 // Ensure the selected fuel type is included
                 formData.set('fuelType', fuelTypeSelect.value);
+
+                // Include the terms acceptance in the form data
+                formData.set('termsAccepted', termsCheckbox.checked ? 'Yes' : 'No');
 
 
                 fetch(form.action, {
@@ -1486,8 +1765,22 @@
                 }).then(response => {
                     if (response.ok) {
                         responseMessage.textContent = 'Thank you for your booking! We will contact you shortly.';
-                        responseMessage.style.color = '#2ecc71'; // Success color
+                        responseMessage.style.color = '#28a745'; // Success color
                         form.reset(); // Reset the form on successful submission
+
+                        // --- Show Browser Notification ---
+                        if ('Notification' in window) {
+                            Notification.requestPermission().then(permission => {
+                                if (permission === 'granted') {
+                                    new Notification('Booking Submitted', {
+                                        body: 'We will contact you shortly.'
+                                    });
+                                }
+                            });
+                        }
+                        // ---------------------------------
+
+
                         // Manually trigger actions that reset doesn't handle fully:
                         // Do NOT call getUserLocation here, as it would immediately try to fetch again.
                         // Instead, reset the UI state manually.
@@ -1498,9 +1791,13 @@
                         getLocationBtn.disabled = false; // Re-enable the button
                         getLocationBtn.textContent = "Get Location"; // Reset button text
                         locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Reset instruction text
+                        locationInstruction.style.color = '#dc3545'; // Reset instruction text color to red
 
                         // Also reset the car brand/model inputs visibility and fuel type
                         populateCarModels(); // This will reset the dropdown and hide the 'Other' inputs and reset fuel type
+
+                        // Uncheck the terms checkbox on reset
+                        termsCheckbox.checked = false;
 
 
                         phoneError.style.display = 'none'; // Hide phone error after reset
@@ -1513,12 +1810,12 @@
                             } else {
                                 responseMessage.textContent = 'Oops! There was a problem submitting your form.';
                             }
-                            responseMessage.style.color = '#e74c3c'; // Error color
+                            responseMessage.style.color = '#dc3545'; // Error color
                         })
                     }
                 }).catch(error => {
                     responseMessage.textContent = 'Oops! There was a network problem. Please try again.';
-                    responseMessage.style.color = '#e74c3c'; // Error color
+                    responseMessage.style.color = '#dc3545'; // Error color
                 });
             }
         });
@@ -1537,6 +1834,8 @@
             getLocationBtn.disabled = false; // Ensure button is enabled initially
             getLocationBtn.textContent = "Get Location"; // Set initial button text
             locationInstruction.textContent = "Please click on \"Get Location\" button so we can get your correct location."; // Set initial instruction text
+            locationInstruction.style.color = '#dc3545'; // Set initial instruction text color to red
+
 
             // Initialize car brand/model display and fuel type
             populateCarModels(); // Call this to set up the initial state (dropdown visible, 'Other' inputs hidden)
