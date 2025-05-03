@@ -348,6 +348,7 @@
         .checkbox-container {
             display: flex;
             align-items: center;
+            margin-top: 30px; /* Added margin-top for space above */
             margin-bottom: 25px;
             /* Space below the checkbox */
             font-size: 15px;
@@ -463,8 +464,10 @@
             }
 
             .contact-buttons .button {
+                flex-basis: 0; /* Allow flex items to shrink below content size */
                 flex-grow: 1;
                 /* Allow contact buttons to grow */
+                flex-shrink: 1; /* Allow contact buttons to shrink */
                 min-width: unset;
                 /* Remove min-width to allow more flexible sizing */
                 padding: 10px 15px;
@@ -484,6 +487,7 @@
 
             .checkbox-container {
                 font-size: 14px;
+                margin-top: 25px; /* Adjusted margin-top for smaller screens */
                 margin-bottom: 20px;
             }
         }
@@ -536,8 +540,10 @@
             }
 
             .contact-buttons .button {
+                flex-basis: 0; /* Allow flex items to shrink below content size */
                 flex-grow: 1;
                 /* Allow contact buttons to grow */
+                flex-shrink: 1; /* Allow contact buttons to shrink */
                 min-width: unset;
                 /* Remove min-width */
                 padding: 8px 12px;
@@ -549,6 +555,7 @@
 
             .checkbox-container {
                 font-size: 13px;
+                margin-top: 20px; /* Adjusted margin-top for very small screens */
                 margin-bottom: 15px;
             }
         }
