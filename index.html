@@ -112,14 +112,7 @@
             --footer-link-hover: white;
             /* White link hover */
 
-            /* Sticky Buttons Variables */
-            --sticky-button-whatsapp-bg: #25D366;
-            --sticky-button-whatsapp-hover-bg: #128C7E;
-            --sticky-button-call-bg: #023E8A;
-            --sticky-button-call-hover-bg: #001f4d;
-            --sticky-button-text: white;
-            --sticky-button-border: transparent;
-            --sticky-button-shadow: rgba(0, 0, 0, 0.2);
+            /* Sticky Buttons Variables (Removed styles as buttons are removed) */
         }
 
         /* For WebKit browsers (Chrome, Safari, newer Edge) - Hide scrollbar */
@@ -135,6 +128,8 @@
             background-color: var(--bg-color);
             overflow-x: hidden;
             /* Prevent horizontal scrollbar */
+            width: 100%; /* Ensure body doesn't exceed 100% width */
+             /* Needed for absolute/fixed positioning children if any */
         }
 
         /* Apply heading font to all heading levels using theme variables */
@@ -166,6 +161,7 @@
             /* Reduced from 0.75rem */
             padding-bottom: 0.5rem;
             /* Reduced from 0.75rem */
+            width: 100%; /* Ensure header doesn't exceed 100% width */
         }
 
         /* Header scrolled state */
@@ -185,6 +181,7 @@
             justify-content: space-between;
             /* Space between title and nav/language */
             align-items: center;
+             width: 100%; /* Ensure container is within header width */
         }
 
         /* Give the title space to the right */
@@ -240,6 +237,7 @@
             right: -250px;
             /* Start off-screen */
             width: 250px;
+            max-width: 100%; /* Ensure slider doesn't exceed screen width */
             height: 100%;
             /* Apply blue to black gradient background */
             background: linear-gradient(90deg, #0077cc 0%, #000000 100%);
@@ -379,6 +377,7 @@
             margin-bottom: 3rem;
             color: var(--text-color);
             text-align: center;
+             max-width: 100%; /* Ensure title doesn't cause overflow */
         }
 
         .section-subtitle {
@@ -387,6 +386,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary-dark);
+             max-width: 100%; /* Ensure subtitle doesn't cause overflow */
         }
 
         .info-card {
@@ -398,6 +398,8 @@
             margin-bottom: 2.5rem;
             color: var(--text-color);
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+             width: 100%; /* Ensure info card is responsive */
+             max-width: 100%; /* Ensure info card doesn't cause overflow */
         }
 
         .info-highlight {
@@ -407,6 +409,8 @@
             /* Default padding */
             text-align: center;
             transition: background-color 0.5s ease, color 0.5s ease;
+             width: 100%; /* Ensure info highlight is responsive */
+             max-width: 100%; /* Ensure info highlight doesn't cause overflow */
         }
 
         .info-highlight .value {
@@ -432,74 +436,6 @@
             color: var(--primary-dark);
         }
 
-        /* --- Sticky Buttons CSS --- */
-        .sticky-buttons {
-            position: fixed;
-            bottom: 20px;
-            /* User's original position */
-            right: 20px;
-            /* User's original position */
-            z-index: 1000;
-            /* Ensure they are on top */
-            display: flex;
-            flex-direction: column;
-            /* User's original layout */
-            gap: 15px;
-            /* Increased gap slightly for circular buttons */
-        }
-
-        /* Common style for both sticky buttons for consistency */
-        .sticky-buttons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--sticky-button-text);
-            box-shadow: 0 4px 8px var(--sticky-button-shadow);
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            border: none;
-            width: 60px;
-            /* Make both buttons circular */
-            height: 60px;
-            border-radius: 50%;
-            /* Circular shape */
-            font-size: 28px;
-            /* Icon size */
-        }
-
-        .sticky-buttons a:hover {
-            transform: scale(1.1);
-            /* Consistent hover scale */
-            box-shadow: 0 6px 12px var(--sticky-button-shadow);
-        }
-
-        .sticky-buttons a:active {
-            transform: scale(0.95);
-        }
-
-        /* WhatsApp Sticky Button */
-        .sticky-buttons .whatsapp {
-            background-color: var(--sticky-button-whatsapp-bg);
-        }
-
-        .sticky-buttons .whatsapp:hover {
-            background-color: var(--sticky-button-whatsapp-hover-bg);
-        }
-
-        /* Call Sticky Button */
-        .sticky-buttons .call {
-            background-color: var(--sticky-button-call-bg);
-        }
-
-        .sticky-buttons .call:hover {
-            background-color: var(--sticky-button-call-hover-bg);
-        }
-
-        /* Hide text in sticky buttons */
-        .sticky-buttons a span {
-            display: none;
-        }
-
 
         /* In-section Call/WhatsApp Buttons */
         .section-contact-buttons {
@@ -509,6 +445,8 @@
             gap: 1.5rem;
             margin-top: 2.5rem;
             flex-wrap: wrap;
+             width: 100%; /* Ensure button container is responsive */
+             max-width: 100%; /* Ensure button container doesn't cause overflow */
         }
 
         .section-contact-buttons a {
@@ -560,6 +498,7 @@
             font-size: 3.5rem;
             /* Default size */
             line-height: 1.2;
+             max-width: 100%; /* Ensure heading doesn't cause overflow */
         }
 
         /* Adjust some Tailwind classes for new colors */
@@ -647,6 +586,7 @@
             /* Add some margin/padding around the select element itself */
             padding: 4px;
             /* Small padding around the dropdown */
+             max-width: 100%; /* Ensure language selector doesn't cause overflow */
         }
 
         .language-selector-mobile select {
@@ -685,6 +625,8 @@
             background-position: center;
             color: white;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+             width: 100%; /* Ensure service card is responsive */
+             max-width: 100%; /* Ensure service card doesn't cause overflow */
         }
 
         .service-card::before {
@@ -707,7 +649,7 @@
         /* Specific background images for each service (replaced with placeholders) */
         #services .grid>div:nth-child(1) {
             /* Jump Start */
-            background-image: url('images/batteryreplace.jpg');
+            background-image: url('images/jumpstart.jpg');
         }
 
         #services .grid>div:nth-child(2) {
@@ -760,6 +702,8 @@
             /* You can add a mobile-specific default background here if needed */
             /* For example: */
             /* background-image: url('path/to/your/default-hero-desktop-image.jpg'); */
+             width: 100%; /* Ensure hero section is responsive */
+             max-width: 100%; /* Ensure hero section doesn't cause overflow */
         }
 
         /* Example of a mobile-specific default hero background (optional) */
@@ -800,6 +744,7 @@
             overflow: hidden;
             padding: 0 15px;
             /* Add padding to see partial slides */
+             max-width: 100%; /* Ensure swiper container doesn't cause overflow */
         }
 
         .swiper-slide {
@@ -816,6 +761,7 @@
             /* Ensure image respects border-radius */
             cursor: grab;
             /* Indicate it's draggable */
+             width: 100%; /* Ensure slide takes full width */
         }
 
         .swiper-slide:active {
@@ -836,14 +782,10 @@
         }
 
         /* Swiper Navigation (Arrows) */
-        
-            
-        
 
-        
 
         /* Adjust arrow position */
-       
+
 
         /* Swiper Pagination (Dots) */
         .swiper-pagination-bullet {
@@ -864,6 +806,8 @@
         .customer-reviews {
             margin-top: 4rem;
             text-align: center;
+             width: 100%; /* Ensure reviews section is responsive */
+             max-width: 100%; /* Ensure reviews section doesn't cause overflow */
         }
 
         .customer-review-card {
@@ -875,6 +819,8 @@
             text-align: left;
             color: var(--text-color);
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+             width: 100%; /* Ensure review card is responsive */
+             max-width: 100%; /* Ensure review card doesn't cause overflow */
         }
 
         .customer-review-card .rating {
@@ -941,6 +887,8 @@
             background-color: var(--footer-bg);
             color: var(--footer-text);
             transition: background-color 0.5s ease, color 0.5s ease;
+             width: 100%; /* Ensure footer is responsive */
+             max-width: 100%; /* Ensure footer doesn't cause overflow */
         }
 
         footer h3 {
@@ -965,6 +913,10 @@
                 /* User's main container class, ensure it has padding */
                 padding-left: 15px;
                 padding-right: 15px;
+                 width: 100%; /* Ensure container is responsive */
+                 max-width: 100%; /* Ensure container doesn't cause overflow */
+                 overflow-x: hidden;
+
             }
 
             /* Ensure header's inner container also respects this if it's different */
@@ -981,6 +933,8 @@
                 justify-content: space-between;
                 /* Distribute items */
                 align-items: center;
+                 width: 100%; /* Ensure header container is responsive */
+                 max-width: 100%; /* Ensure header container doesn't cause overflow */
             }
 
             /* Hide desktop navigation on mobile */
@@ -1018,6 +972,7 @@
                 /* Position set by JS */
                 /* Initial positioning will be set by JavaScript */
                 /* The JS function will calculate top and right based on the hamburger button */
+                 max-width: 100%; /* Ensure mobile language selector doesn't cause overflow */
             }
 
             #hero h2 {
@@ -1037,6 +992,8 @@
                 /* Reduced padding */
                 font-size: 0.95rem;
                 /* Reduced font size */
+                 width: 100%; /* Ensure buttons are responsive */
+                 max-width: 100%; /* Ensure buttons don't cause overflow */
             }
 
 
@@ -1044,58 +1001,23 @@
                 font-size: 1.8rem;
                 /* Smaller section titles */
                 margin-bottom: 2rem;
+                 max-width: 100%; /* Ensure title doesn't cause overflow */
             }
 
             .section-subtitle {
                 font-size: 1.3rem;
                 /* Smaller section subtitles */
+                 max-width: 100%; /* Ensure subtitle doesn't cause overflow */
             }
 
-            .sticky-buttons {
-                bottom: 15px;
-                /* Adjust position for smaller screens */
-                right: 15px;
-                gap: 10px;
-                /* Adjust gap */
-            }
-
-            /* WhatsApp button on mobile */
-            .sticky-buttons .whatsapp {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                /* Smaller icon */
-            }
-
-            /* Call button on mobile */
-            .sticky-buttons .call {
-                width: 50px;
-                /* Make width same as WhatsApp for consistency */
-                height: 50px;
-                /* Make height same as WhatsApp for consistency */
-                border-radius: 50%;
-                /* Make it circular on mobile for consistency */
-                padding: 0;
-                /* Remove padding when icon-only */
-            }
-
-            .sticky-buttons .call i {
-                margin-right: 0;
-                /* No margin for icon when text is hidden */
-                font-size: 22px;
-                /* Adjust icon size */
-            }
-
-            /* Hide text in sticky buttons on mobile */
-            .sticky-buttons a span {
-                display: none;
-            }
+            /* Sticky buttons styles removed */
 
 
             /* Swiper adjustments for mobile */
             .swiper-container {
                 padding: 0 10px;
                 /* Less padding on smaller screens */
+                 max-width: 100%; /* Ensure swiper container doesn't cause overflow */
             }
 
             /* Swiper Navigation (Arrows) adjustments for mobile */
@@ -1119,6 +1041,8 @@
 
             .section-contact-buttons {
                 gap: 0.8rem;
+                 width: 100%; /* Ensure button container is responsive */
+                 max-width: 100%; /* Ensure button container doesn't cause overflow */
             }
 
             .section-contact-buttons a {
@@ -1133,6 +1057,8 @@
             .info-card {
                 padding: 1.5rem;
                 /* Reduced padding for info cards */
+                 width: 100%; /* Ensure info card is responsive */
+                 max-width: 100%; /* Ensure info card doesn't cause overflow */
             }
 
             .info-card th,
@@ -1145,6 +1071,8 @@
             .info-highlight {
                 padding: 1rem;
                 /* Reduced padding */
+                 width: 100%; /* Ensure info highlight is responsive */
+                 max-width: 100%; /* Ensure info highlight doesn't cause overflow */
             }
 
             .info-highlight .value {
@@ -1165,7 +1093,7 @@
                 margin-bottom: 0;
             }
         }
-
+        
         @media (max-width: 480px) {
 
             /* For very small mobile screens */
@@ -1249,23 +1177,7 @@
                 font-size: 0.85rem;
             }
 
-            /* Sticky buttons on very small screens */
-            .sticky-buttons .whatsapp,
-            .sticky-buttons .call {
-                width: 45px;
-                height: 45px;
-            }
-
-            .sticky-buttons .whatsapp {
-                font-size: 20px;
-            }
-
-            /* Icon size */
-            .sticky-buttons .call i {
-                font-size: 18px;
-            }
-
-            /* Icon size */
+            /* Sticky buttons styles removed */
 
 
             .customer-review-card {
@@ -1294,8 +1206,7 @@
                     data-translate="navServices">Services</a>
                 <a href="#inspection" class="hover:text-blue-400 transition duration-300 mx-1 md:mx-2"
                     data-translate="navInspection">Inspection Charges</a>
-                <a href="#team" class="hover:text-blue-400 transition duration-300 mx-1 md:mx-2"
-                    data-translate="navTeam">Our
+                <a href="#team" class="hover:text-blue-400 transition duration-300 mx-1 md:mx-2" data-translate="navTeam">Our
                     Team</a>
                 <a href="#contact" class="hover:text-blue-400 transition duration-300 mx-1 md:mx-2"
                     data-translate="navContact">Contact</a>
@@ -1399,7 +1310,7 @@
             <h2 class="section-title" data-aos="fade-up" data-translate="servicesHeading">Our Professional Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100"
-                    style="background-image: url('https://placehold.co/600x400/005f99/ffffff?text=Jump+Start');">
+                    style="background-image: url('images/jumpstart.jpg');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1407,7 +1318,7 @@
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4" data-translate="serviceJumpStartTitle" >
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3 md:mb-4" data-translate="serviceJumpStartTitle">
                         Jump
                         Start</h3>
                     <p class="text-sm md:text-base mb-4 md:mb-6 flex-grow" data-translate="serviceJumpStartDesc">Rapid
@@ -1822,7 +1733,7 @@
         </div>
     </section>
 
-    <section id="social-media" class="py-12 md:py-16 px-4 text-center">
+    <section id="social-media" class="py-12 md:py-16 px-4">
         <div class="container mx-auto max-w-2xl">
             <h2 class="text-2xl md:text-3xl font-semibold mb-6 md:mb-8" data-aos="fade-up"
                 data-translate="socialMediaHeading"> Follow Us</h2>
@@ -1971,15 +1882,6 @@
         </div>
     </footer>
 
-    <div class="sticky-buttons">
-        <a href="https://wa.me/919303931226" target="_blank" class="whatsapp" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+919303931226" class="call" aria-label="Call">
-            <i class="fas fa-phone-alt"></i>
-        </a>
-    </div>
-
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
@@ -2047,6 +1949,7 @@
                 teamAvailabilityValue: "24/7",
                 teamAvailabilityLabel: "Service Availability",
                 teamQuote: "Our mechanics are equipped with the latest tools and technology to provide accurate diagnostics and efficient repairs on the spot.",
+                teamRequestBtn: "Request a Mechanic Now",
                 customerReviewsHeading: "What Our Customers Say", // Added reviews heading
                 review1Text: "\"Absolutely fantastic service! My car broke down unexpectedly, and Fix My Car was there in no time. The mechanic was professional and fixed the issue quickly. Highly recommend!\"", // Added review 1
                 review1Name: "- Anjali Desai", // Added Indian reviewer 1 name
@@ -2083,7 +1986,6 @@
                 footerPhone: "Phone: 9303931226",
                 footerEmail: "aabhassolankiforwork@gmail.com",
                 callUsBtn: "Call Us" // For sticky button
-
             },
             hi: {
                 // Navigation
@@ -2123,7 +2025,7 @@
                 // Customer Satisfaction Section
                 satisfactionHeading: "गुणवत्ता सेवा, खुश ग्राहक",
                 satisfactionSubtitle: "आपका वाहन, हमारी प्राथमिकता",
-                satisfactionDesc: "हम उच्च गुणवत्ता वाली मोबाइल मैकेनिक सेवाएं प्रदान करने के लिए प्रतिबद्ध हैं जो न केवल आपकी कार की समस्याओं को कुशलता से ठीक करती हैं बल्कि आपको मानसिक शांति भी देती हैं। हमारे कुशल तकनीशियन सुनिश्चित करते हैं कि हर मरम्मत सही ढंग से, मौके पर की जाए, ताकि आप सुरक्षित और आत्मविश्वास से सड़क पर वापस आ सकें।",
+                satisfactionDesc: "हम उच्च गुणवत्ता वाली मोबाइल मेकॅनिक सेवाएं प्रदान करने के लिए प्रतिबद्ध हैं जो न केवल आपकी कार की समस्याओं को कुशलता से ठीक करती हैं बल्कि आपको मानसिक शांति भी देती हैं। हमारे कुशल तकनीशियन सुनिश्चित करते हैं कि हर मरम्मत सही ढंग से, मौके पर की जाए, ताकि आप सुरक्षित और आत्मविश्वास से सड़क पर वापस आ सकें।",
                 satisfactionQuote: "\"तेज़, मैत्रीपूर्ण, और पहली बार में ही ठीक हो गया! फिक्स माय कार की अत्यधिक अनुशंसा करते हैं।\" - एक खुश ग्राहक",
 
                 // Inspection Charges Section
@@ -2365,11 +2267,11 @@
                 socialMediaSubheading: "अपडेट्स आणि ऑफरसाठी सोशल मीडिया पर आमच्याशी कनेक्टेड रहा!",
 
                 // Terms and Conditions Section
-                termsHeading: "नियम आणि अटी",
-                termsList: [
-                    // Add translation for each list item if needed, or handle in JS
-                ],
-                termsAgreement: "सेवा विनंतीसह पुढे जाऊन, आपण स्वीकारता की आपण हे नियम आणि अटी वाचल्या आहेत, समजून घेतल्या आहेत आणि त्यांना सहमती दिली आहे。",
+termsHeading: "नियम आणि अटी",
+termsList: [
+    // Add translation for each list item if needed, or handle in JS
+],
+termsAgreement: "सेवा विनंतीसह पुढे जाऊन, आपण स्वीकारता की आपण हे नियम आणि अटी वाचल्या आहेत, समजून घेतल्या आहेत आणि त्यांना सहमती दिली आहे。",
 
                 // Footer
                 footerTitle: "फिक्स माय कार",
@@ -2645,7 +2547,7 @@
             let touchendX = 0;
 
             function checkGesture() {
-                // If menu is open and swipe left (towards left)                                             
+                // If menu is open and swipe left (towards left)
                 if (mobileNavSlider.classList.contains('open') && touchendX < touchstartX) {
                     mobileNavSlider.classList.remove('open');
                     mobileNavOverlay.classList.remove('visible');
