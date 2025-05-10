@@ -19,29 +19,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyDGwCRQIVyOAZbJ1flWESc9HEliw7sQgC4", // Note: It's generally recommended to manage API keys securely, e.g., via environment variables for backend or Firebase App Check.
-            authDomain: "fix-mycar.firebaseapp.com",
-            projectId: "fix-mycar",
-            storageBucket: "fix-mycar.firebasestorage.app",
-            messagingSenderId: "777563857151",
-            appId: "1:777563857151:web:99d61cb9c951f76d536cca",
-            measurementId: "G-5WL6ZMDJB6"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
     <style>
         @import "tailwindcss";
 
@@ -112,7 +89,18 @@
             --footer-link-hover: white;
             /* White link hover */
 
-            /* Sticky Buttons Variables (Removed styles as buttons are removed) */
+            /* Sticky Buttons Variables */
+            --sticky-button-bg: #0077cc;
+            /* Blue */
+            --sticky-button-hover-bg: #005f99;
+            /* Darker Blue */
+            --sticky-button-text: white;
+            --sticky-whatsapp-bg: #25D366;
+            --sticky-whatsapp-hover-bg: #128C7E;
+            --sticky-whatsapp-text: white;
+            --sticky-call-bg: #023E8A;
+            --sticky-call-hover-bg: #001f4d;
+            --sticky-call-text: white;
         }
 
         /* For WebKit browsers (Chrome, Safari, newer Edge) - Hide scrollbar */
@@ -128,8 +116,9 @@
             background-color: var(--bg-color);
             overflow-x: hidden;
             /* Prevent horizontal scrollbar */
-            width: 100%; /* Ensure body doesn't exceed 100% width */
-             /* Needed for absolute/fixed positioning children if any */
+            width: 100%;
+            /* Ensure body doesn't exceed 100% width */
+            /* Needed for absolute/fixed positioning children if any */
         }
 
         /* Apply heading font to all heading levels using theme variables */
@@ -161,7 +150,8 @@
             /* Reduced from 0.75rem */
             padding-bottom: 0.5rem;
             /* Reduced from 0.75rem */
-            width: 100%; /* Ensure header doesn't exceed 100% width */
+            width: 100%;
+            /* Ensure header doesn't exceed 100% width */
         }
 
         /* Header scrolled state */
@@ -181,7 +171,8 @@
             justify-content: space-between;
             /* Space between title and nav/language */
             align-items: center;
-             width: 100%; /* Ensure container is within header width */
+            width: 100%;
+            /* Ensure container is within header width */
         }
 
         /* Give the title space to the right */
@@ -237,7 +228,8 @@
             right: -250px;
             /* Start off-screen */
             width: 250px;
-            max-width: 100%; /* Ensure slider doesn't exceed screen width */
+            max-width: 100%;
+            /* Ensure slider doesn't exceed screen width */
             height: 100%;
             /* Apply blue to black gradient background */
             background: linear-gradient(90deg, #0077cc 0%, #000000 100%);
@@ -377,7 +369,8 @@
             margin-bottom: 3rem;
             color: var(--text-color);
             text-align: center;
-             max-width: 100%; /* Ensure title doesn't cause overflow */
+            max-width: 100%;
+            /* Ensure title doesn't cause overflow */
         }
 
         .section-subtitle {
@@ -386,7 +379,8 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary-dark);
-             max-width: 100%; /* Ensure subtitle doesn't cause overflow */
+            max-width: 100%;
+            /* Ensure subtitle doesn't cause overflow */
         }
 
         .info-card {
@@ -398,8 +392,10 @@
             margin-bottom: 2.5rem;
             color: var(--text-color);
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-             width: 100%; /* Ensure info card is responsive */
-             max-width: 100%; /* Ensure info card doesn't cause overflow */
+            width: 100%;
+            /* Ensure info card is responsive */
+            max-width: 100%;
+            /* Ensure info card doesn't cause overflow */
         }
 
         .info-highlight {
@@ -408,9 +404,11 @@
             padding: 1.5rem;
             /* Default padding */
             text-align: center;
-            transition: background-color 0.5s ease, color 0.5s ease;
-             width: 100%; /* Ensure info highlight is responsive */
-             max-width: 100%; /* Ensure info highlight doesn't cause overflow */
+            transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+            width: 100%;
+            /* Ensure info highlight is responsive */
+            max-width: 100%;
+            /* Ensure info highlight doesn't cause overflow */
         }
 
         .info-highlight .value {
@@ -445,8 +443,10 @@
             gap: 1.5rem;
             margin-top: 2.5rem;
             flex-wrap: wrap;
-             width: 100%; /* Ensure button container is responsive */
-             max-width: 100%; /* Ensure button container doesn't cause overflow */
+            width: 100%;
+            /* Ensure button container is responsive */
+            max-width: 100%;
+            /* Ensure button container doesn't cause overflow */
         }
 
         .section-contact-buttons a {
@@ -498,7 +498,8 @@
             font-size: 3.5rem;
             /* Default size */
             line-height: 1.2;
-             max-width: 100%; /* Ensure heading doesn't cause overflow */
+            max-width: 100%;
+            /* Ensure heading doesn't cause overflow */
         }
 
         /* Adjust some Tailwind classes for new colors */
@@ -586,7 +587,8 @@
             /* Add some margin/padding around the select element itself */
             padding: 4px;
             /* Small padding around the dropdown */
-             max-width: 100%; /* Ensure language selector doesn't cause overflow */
+            max-width: 100%;
+            /* Ensure language selector doesn't cause overflow */
         }
 
         .language-selector-mobile select {
@@ -625,8 +627,10 @@
             background-position: center;
             color: white;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-             width: 100%; /* Ensure service card is responsive */
-             max-width: 100%; /* Ensure service card doesn't cause overflow */
+            width: 100%;
+            /* Ensure service card is responsive */
+            max-width: 100%;
+            /* Ensure service card doesn't cause overflow */
         }
 
         .service-card::before {
@@ -674,7 +678,7 @@
 
         #services .grid>div:nth-child(6) {
             /* Minor Repairs */
-            background-image: url('https://placehold.co/600x400/023E8A/ffffff?text=Minor+Repairs');
+            background-image: url('images/minor2.jpeg');
         }
 
         .service-card .p-3 svg {
@@ -702,8 +706,10 @@
             /* You can add a mobile-specific default background here if needed */
             /* For example: */
             /* background-image: url('path/to/your/default-hero-desktop-image.jpg'); */
-             width: 100%; /* Ensure hero section is responsive */
-             max-width: 100%; /* Ensure hero section doesn't cause overflow */
+            width: 100%;
+            /* Ensure hero section is responsive */
+            max-width: 100%;
+            /* Ensure hero section doesn't cause overflow */
         }
 
         /* Example of a mobile-specific default hero background (optional) */
@@ -744,7 +750,8 @@
             overflow: hidden;
             padding: 0 15px;
             /* Add padding to see partial slides */
-             max-width: 100%; /* Ensure swiper container doesn't cause overflow */
+            max-width: 100%;
+            /* Ensure swiper container doesn't cause overflow */
         }
 
         .swiper-slide {
@@ -761,7 +768,8 @@
             /* Ensure image respects border-radius */
             cursor: grab;
             /* Indicate it's draggable */
-             width: 100%; /* Ensure slide takes full width */
+            width: 100%;
+            /* Ensure slide takes full width */
         }
 
         .swiper-slide:active {
@@ -806,8 +814,10 @@
         .customer-reviews {
             margin-top: 4rem;
             text-align: center;
-             width: 100%; /* Ensure reviews section is responsive */
-             max-width: 100%; /* Ensure reviews section doesn't cause overflow */
+            width: 100%;
+            /* Ensure reviews section is responsive */
+            max-width: 100%;
+            /* Ensure reviews section doesn't cause overflow */
         }
 
         .customer-review-card {
@@ -819,8 +829,10 @@
             text-align: left;
             color: var(--text-color);
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-             width: 100%; /* Ensure review card is responsive */
-             max-width: 100%; /* Ensure review card doesn't cause overflow */
+            width: 100%;
+            /* Ensure review card is responsive */
+            max-width: 100%;
+            /* Ensure review card doesn't cause overflow */
         }
 
         .customer-review-card .rating {
@@ -887,8 +899,10 @@
             background-color: var(--footer-bg);
             color: var(--footer-text);
             transition: background-color 0.5s ease, color 0.5s ease;
-             width: 100%; /* Ensure footer is responsive */
-             max-width: 100%; /* Ensure footer doesn't cause overflow */
+            width: 100%;
+            /* Ensure footer is responsive */
+            max-width: 100%;
+            /* Ensure footer doesn't cause overflow */
         }
 
         footer h3 {
@@ -904,6 +918,65 @@
             color: var(--footer-link-hover);
         }
 
+        /* Sticky Buttons Container */
+        .sticky-buttons-left {
+            position: fixed;
+            bottom: 20px;
+            /* Adjust vertical position */
+            left: 20px;
+            /* Position on the left */
+            display: flex;
+            flex-direction: column;
+            /* Stack buttons vertically */
+            gap: 10px;
+            /* Space between buttons */
+            z-index: 1000;
+            /* Ensure buttons are on top */
+        }
+
+        /* Style for individual sticky buttons */
+        .sticky-buttons-left a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            /* Fixed width for round buttons */
+            height: 50px;
+            /* Fixed height for round buttons */
+            border-radius: 50%;
+            /* Make them round */
+            color: white;
+            font-size: 1.5rem;
+            /* Icon size */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+        .sticky-buttons-left a:hover {
+            transform: scale(1.1);
+            /* Slightly enlarge on hover */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Specific colors for WhatsApp and Call buttons */
+        .sticky-buttons-left .whatsapp-btn {
+            background-color: var(--sticky-whatsapp-bg);
+        }
+
+        .sticky-buttons-left .whatsapp-btn:hover {
+            background-color: var(--sticky-whatsapp-hover-bg);
+        }
+
+        .sticky-buttons-left .call-btn {
+            background-color: var(--sticky-call-bg);
+        }
+
+        .sticky-buttons-left .call-btn:hover {
+            background-color: var(--sticky-call-hover-bg);
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -913,9 +986,11 @@
                 /* User's main container class, ensure it has padding */
                 padding-left: 15px;
                 padding-right: 15px;
-                 width: 100%; /* Ensure container is responsive */
-                 max-width: 100%; /* Ensure container doesn't cause overflow */
-                 overflow-x: hidden;
+                width: 100%;
+                /* Ensure container is responsive */
+                max-width: 100%;
+                /* Ensure container doesn't cause overflow */
+                overflow-x: hidden;
 
             }
 
@@ -933,8 +1008,10 @@
                 justify-content: space-between;
                 /* Distribute items */
                 align-items: center;
-                 width: 100%; /* Ensure header container is responsive */
-                 max-width: 100%; /* Ensure header container doesn't cause overflow */
+                width: 100%;
+                /* Ensure header container is responsive */
+                max-width: 100%;
+                /* Ensure header container doesn't cause overflow */
             }
 
             /* Hide desktop navigation on mobile */
@@ -972,7 +1049,8 @@
                 /* Position set by JS */
                 /* Initial positioning will be set by JavaScript */
                 /* The JS function will calculate top and right based on the hamburger button */
-                 max-width: 100%; /* Ensure mobile language selector doesn't cause overflow */
+                max-width: 100%;
+                /* Ensure mobile language selector doesn't cause overflow */
             }
 
             #hero h2 {
@@ -992,8 +1070,10 @@
                 /* Reduced padding */
                 font-size: 0.95rem;
                 /* Reduced font size */
-                 width: 100%; /* Ensure buttons are responsive */
-                 max-width: 100%; /* Ensure buttons don't cause overflow */
+                width: 100%;
+                /* Ensure buttons are responsive */
+                max-width: 100%;
+                /* Ensure buttons doesn't cause overflow */
             }
 
 
@@ -1001,23 +1081,43 @@
                 font-size: 1.8rem;
                 /* Smaller section titles */
                 margin-bottom: 2rem;
-                 max-width: 100%; /* Ensure title doesn't cause overflow */
+                max-width: 100%;
+                /* Ensure title doesn't cause overflow */
             }
 
             .section-subtitle {
                 font-size: 1.3rem;
                 /* Smaller section subtitles */
-                 max-width: 100%; /* Ensure subtitle doesn't cause overflow */
+                max-width: 100%;
+                /* Ensure subtitle doesn't cause overflow */
             }
 
-            /* Sticky buttons styles removed */
+            /* Sticky buttons adjustments for mobile */
+            .sticky-buttons-left {
+                bottom: 15px;
+                /* Slightly less space from bottom */
+                left: 15px;
+                /* Slightly less space from left */
+                gap: 8px;
+                /* Smaller gap */
+            }
+
+            .sticky-buttons-left a {
+                width: 45px;
+                /* Smaller button size */
+                height: 45px;
+                /* Smaller button size */
+                font-size: 1.3rem;
+                /* Smaller icon size */
+            }
 
 
             /* Swiper adjustments for mobile */
             .swiper-container {
                 padding: 0 10px;
                 /* Less padding on smaller screens */
-                 max-width: 100%; /* Ensure swiper container doesn't cause overflow */
+                max-width: 100%;
+                /* Ensure swiper container doesn't cause overflow */
             }
 
             /* Swiper Navigation (Arrows) adjustments for mobile */
@@ -1041,8 +1141,10 @@
 
             .section-contact-buttons {
                 gap: 0.8rem;
-                 width: 100%; /* Ensure button container is responsive */
-                 max-width: 100%; /* Ensure button container doesn't cause overflow */
+                width: 100%;
+                /* Ensure button container is responsive */
+                max-width: 100%;
+                /* Ensure button container doesn't cause overflow */
             }
 
             .section-contact-buttons a {
@@ -1057,8 +1159,10 @@
             .info-card {
                 padding: 1.5rem;
                 /* Reduced padding for info cards */
-                 width: 100%; /* Ensure info card is responsive */
-                 max-width: 100%; /* Ensure info card doesn't cause overflow */
+                width: 100%;
+                /* Ensure info card is responsive */
+                max-width: 100%;
+                /* Ensure info card doesn't cause overflow */
             }
 
             .info-card th,
@@ -1071,8 +1175,10 @@
             .info-highlight {
                 padding: 1rem;
                 /* Reduced padding */
-                 width: 100%; /* Ensure info highlight is responsive */
-                 max-width: 100%; /* Ensure info highlight doesn't cause overflow */
+                width: 100%;
+                /* Ensure info highlight is responsive */
+                max-width: 100%;
+                /* Ensure info highlight doesn't cause overflow */
             }
 
             .info-highlight .value {
@@ -1093,7 +1199,7 @@
                 margin-bottom: 0;
             }
         }
-        
+
         @media (max-width: 480px) {
 
             /* For very small mobile screens */
@@ -1177,7 +1283,25 @@
                 font-size: 0.85rem;
             }
 
-            /* Sticky buttons styles removed */
+
+            /* Sticky buttons adjustments for very small mobile */
+            .sticky-buttons-left {
+                bottom: 10px;
+                /* Even less space from bottom */
+                left: 10px;
+                /* Even less space from left */
+                gap: 6px;
+                /* Even smaller gap */
+            }
+
+            .sticky-buttons-left a {
+                width: 40px;
+                /* Even smaller button size */
+                height: 40px;
+                /* Even smaller button size */
+                font-size: 1.2rem;
+                /* Even smaller icon size */
+            }
 
 
             .customer-review-card {
@@ -1188,6 +1312,12 @@
             .customer-review-card .reviewer-name {
                 font-size: 0.8rem;
             }
+        }
+
+        /* Added CSS rule to ensure the Terms section is displayed */
+        #terms {
+            display: block !important;
+            visibility: visible !important;
         }
     </style>
 </head>
@@ -1333,7 +1463,7 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200"
-                    style="background-image: url('https://placehold.co/600x400/0077cc/ffffff?text=Flat+Tire');">
+                    style="background-image: url('images/flattire.jpg');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1356,7 +1486,7 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300"
-                    style="background-image: url('https://placehold.co/600x400/023E8A/ffffff?text=Fuel+Delivery');">
+                    style="background-image: url('images/fuel.png');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1379,7 +1509,7 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100"
-                    style="background-image: url('https://placehold.co/600x400/0077cc/ffffff?text=Diagnostics');">
+                    style="background-image: url('images/diagnostic.jpg');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1402,7 +1532,7 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200"
-                    style="background-image: url('https://placehold.co/600x400/005f99/ffffff?text=Battery');">
+                    style="background-image: url('images/batteryreplace.jpg');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1425,7 +1555,7 @@
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300"
-                    style="background-image: url('https://placehold.co/600x400/023E8A/ffffff?text=Minor+Repairs');">
+                    style="background-image: url('images/minor2.jpeg');">
                     <div class="p-3 bg-opacity-20 bg-white text-white rounded-full mb-4 md:mb-6 inline-block">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -1478,7 +1608,7 @@
                 Customers</h2>
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-10">
                 <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-delay="100">
-                    <img src="https://placehold.co/600x400/0077cc/ffffff?text=Satisfied+Customer"
+                    <img src="images\satisfoed2.jpg"
                         alt="Mechanic repairing a car with a satisfied customer looking on"
                         class="rounded-xl shadow-lg w-full h-auto object-cover">
                 </div>
@@ -1881,6 +2011,16 @@
             </div>
         </div>
     </footer>
+
+    <div class="sticky-buttons-left">
+        <a href="https://wa.me/919303931226" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919303931226" class="call-btn" aria-label="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
